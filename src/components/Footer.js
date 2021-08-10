@@ -7,7 +7,7 @@ const Footer = () => {
       {" "}
       <br />{" "}
       <em>
-        Note app, Giancarlo Guerra 2021
+        Notes app, Giancarlo Guerra 2021
       </em>{" "}
     </div>
   );
