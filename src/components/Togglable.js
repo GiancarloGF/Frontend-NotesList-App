@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState,useImperativeHandle } from 'react';
 
-// This component show information about form's login or button to display the form's login.
-const Togglable = (props) => {
+
+/* todo lo que este dentro de este componente se puede ocultar o mostrar segun un boton.
+forwardReft hace que este componente pueda acceder a la referencia que se le pasa por parametro ref y pasarselo a otro componente */
+const Togglable = React.forwardRef((props,ref) => {
 
   const [visible, setVisible] = useState(false);
 
@@ -11,6 +13,11 @@ const Togglable = (props) => {
   const toggleVisibility = () => {
     setVisible(!visible)
   }
+
+  //Este hook hace que toggleVisibility este disponible fuera de este componente, por lo que un componente padre o superior puede usar esta funcion desde afuera.
+  useImperativeHandle(ref,() => {
+    return {toggleVisibility}
+  })
 
   return (
     <div>
@@ -28,6 +35,6 @@ const Togglable = (props) => {
 
     </div>
   )
-}
+})
 
 export default Togglable;

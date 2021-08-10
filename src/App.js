@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import Note from "./components/Note";
 import Footer from "./components/Footer";
 import SuccesMessage from "./components/SuccesMessage";
@@ -70,6 +70,9 @@ const App = () => {
     }
   }
 
+  //Guardo una referencia de mi componente NoteForm que esta dentro de Togglable.
+  const noteFormRef=useRef()
+
   return (
     <div>
       <h1>Notes</h1>
@@ -85,7 +88,12 @@ const App = () => {
           <LoginForm handleLogin={handleLogin}/>
         </Togglable>
       )
-      :(<NoteForm createNote={addNote} userName={user.name}/>)}
+      :(
+        <Togglable buttonLabel='new note' ref={noteFormRef}>
+          <NoteForm createNote={addNote} userName={user.name}/>
+        </Togglable>
+      
+      )}
 
       {/* Boton para cambiar estado a importante o no */}
       <div>
