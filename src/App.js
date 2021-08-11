@@ -75,6 +75,7 @@ const App = () => {
 
   return (
     <div>
+      <h4>Esto fue escrito en la rama de prueba</h4>
       <h1>Notes</h1>
       {/**Mensaje de error customizado */}
       <ErrorMessage message={errorMessage} />
