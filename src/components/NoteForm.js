@@ -6,15 +6,22 @@ const NoteForm=({createNote})=>{
       const addNote = (e) => {
             e.preventDefault();
             //Modelo de dato que se guardara.
-            createNote({content: newNote, important: Math.random() > 0.5})
+            // createNote({content: newNote, important: Math.random() > 0.5})
+            createNote({content: newNote, important: false})//Modificamos la importancia en false para las pruebas
             setNewNote('')
       }
       return (
-            <div>
+            <div className="formDiv">
                  
                   <form onSubmit={addNote}>
-                        <input value={newNote} onChange={handleNoteChange} placeholder="Agregar nueva nota..." />
-                        <button type="submit">save</button>
+                        <input 
+                              value={newNote} 
+                              onChange={handleNoteChange} 
+                              placeholder="Agregar nueva nota..." />
+                        <button 
+                              type="submit">
+                                    save
+                        </button>
                   </form>
             </div>
       )

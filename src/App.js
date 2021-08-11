@@ -62,6 +62,7 @@ const App = () => {
       window.localStorage.setItem('loggedNoteappUser', JSON.stringify(user));//Token saved in localstorage first.
       noteService.setToken(user.token);//It take token and save it in a variable in services/noteService.js.
       setUser(user);//Token, username and name are saved in user state.
+      console.log(user)
       setSuccesMessage(`Login exitoso`);//Display an succesed message.
       setTimeout(() => setSuccesMessage(null), 5000);
     } catch (exception) {
@@ -85,14 +86,14 @@ const App = () => {
       {/* Mostramos el form de login o el form de notas segun el estado user(logeado o no), tambien mostramos el nombre si se logea correctamente.*/}
       {user===null
       ?(
-        <Togglable buttonLabel='log in'>
+        <Togglable buttonLabel='Log in'>
           <LoginForm handleLogin={handleLogin}/>
         </Togglable>
       )
       :(<>
-        <h2>Hola {user.name} 🖐, puedes crear una nueva nota 📝</h2>
-        <Togglable  buttonLabel='new note' ref={noteFormRef}>
-          <NoteForm createNote={addNote} userName={user.name}/>
+        <h2>Hola {user.username} 🖐, puedes crear una nueva nota 📝</h2>
+        <Togglable  buttonLabel='New note' ref={noteFormRef}>
+          <NoteForm createNote={addNote} />
         </Togglable>
         </>
       
