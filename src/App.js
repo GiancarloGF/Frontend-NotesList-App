@@ -80,7 +80,7 @@ const App = () => {
       <ErrorMessage message={errorMessage} />
       {/**Mensaje de exito customizado */}
       <SuccesMessage message={succesMessage} />
-
+      
       {/* Mostramos el form de login o el form de notas segun el estado user(logeado o no), tambien mostramos el nombre si se logea correctamente.*/}
       {user===null
       ?(
@@ -88,10 +88,12 @@ const App = () => {
           <LoginForm handleLogin={handleLogin}/>
         </Togglable>
       )
-      :(
-        <Togglable buttonLabel='new note' ref={noteFormRef}>
+      :(<>
+        <h2>Hola {user.name} 🖐, puedes crear una nueva nota 📝</h2>
+        <Togglable  buttonLabel='new note' ref={noteFormRef}>
           <NoteForm createNote={addNote} userName={user.name}/>
         </Togglable>
+        </>
       
       )}
 

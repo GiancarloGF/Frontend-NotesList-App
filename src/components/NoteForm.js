@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-const NoteForm=({createNote, userName})=>{
+const NoteForm=({createNote})=>{
       const [newNote, setNewNote] = useState(""); //Estado que guarda el valor de una nota actual.Este valor controla el valor del input del fomulario (componente controlado)
       const handleNoteChange = (e) => {setNewNote(e.target.value);};
         
@@ -10,13 +10,13 @@ const NoteForm=({createNote, userName})=>{
             setNewNote('')
       }
       return (
-            <di>
-                  <h2>Hola {userName} 🖐, puedes crear una nueva nota 📝</h2>
+            <div>
+                 
                   <form onSubmit={addNote}>
                         <input value={newNote} onChange={handleNoteChange} placeholder="Agregar nueva nota..." />
                         <button type="submit">save</button>
                   </form>
-            </di>
+            </div>
       )
 }
 export default NoteForm;
