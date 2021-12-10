@@ -1,0 +1,13 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px auto;
+    padding: 1rem 0;
+  }
+
+.widgets{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem  ;
+    justify-content: center;
+}

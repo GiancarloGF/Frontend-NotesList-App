@@ -1,0 +1,20 @@
+.container {
+    font-size: 20px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    width: calc(100% - 20px);
+  }
+
+.success{
+    background: #fff;
+    color: green;
+}
+
+.error{
+    background: #fff;
+    color: red;
+}

@@ -1,13 +1,13 @@
 import React, { useState, useEffect,useRef } from "react";
 import Note from "./components/Note";
 import Footer from "./components/Footer";
-import SuccesMessage from "./components/SuccesMessage";
+import SuccesMessage from "./components/Notification";
 import ErrorMessage from "./components/ErrorMessage";
 import Togglable from "./components/Togglable";
 import LoginForm from "./components/LoginForm";
 import NoteForm from "./components/NoteForm";
-import noteService from "./services/notes";
-import loginService from "./services/login";
+import noteService from "./services/notesService";
+import loginService from "./services/loginService";
 
 const App = () => {
   const [notes, setNotes] = useState([]);
@@ -76,7 +76,6 @@ const App = () => {
 
   return (
     <div>
-      <h4>Esto fue escrito en la rama de prueba</h4>
       <h1>Notes</h1>
       {/**Mensaje de error customizado */}
       <ErrorMessage message={errorMessage} />
