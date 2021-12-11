@@ -1,21 +1,21 @@
-.logoContainer, .logoContainer.menu_active{
+.logoContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    width: 300px;
     height: 100%;
     margin-bottom: 1rem;
-    color: #2980B9;
+    color: var(--primary);
 }
 
 .logoContainer > h1{
-    color: #2980B9;
+    color: var(--primary);
     text-align: center;
     font-size: 1.5rem;
 }
 
 .logoContainer > span{
-    color: #2980B9;
+    color: var(--primary);
     text-align: center;
 }

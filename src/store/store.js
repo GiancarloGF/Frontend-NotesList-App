@@ -4,13 +4,14 @@ import notificationReducer from './features/notification/notificationSlice';
 import notesReducer from './features/notes/notesSlice';
 import showAllReducer from './features/showAll/showAllSlice';
 import userReducer from './features/user/userSlice';
-
+import menuActiveReducer from './features/menuActive/menuActiveSlice';
 
 const reducers= {
     notes: notesReducer,
     showAll: showAllReducer,
     notification: notificationReducer,
-    user: userReducer
+    user: userReducer,
+    isMenuActive: menuActiveReducer
 }
 
 

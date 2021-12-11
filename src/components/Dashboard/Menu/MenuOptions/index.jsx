@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+// import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Styles from "./styles.module.css";
 import Option from "./Option";
 
-function Menu({ menuActive }) {
+function MenuOptions() {
   const [active, setActive] = useState("Dashboard");
   const onActiveHandler = (name) => {
     setActive(name);
@@ -14,13 +15,11 @@ function Menu({ menuActive }) {
     window.location.href = "/";
   };
 
-  const menu_active_class = menuActive ? Styles.menu_active : "";
   return (
-    <div className={`${Styles.menuContainer} ${menu_active_class}`}>
+    <div className={`${Styles.menuOptions_container}`}>
       <Link to="/dashboard/" className={Styles.link}>
         <Option
           text="Dashboard"
-          menuActive={menuActive}
           active={active}
           onActiveHandler={onActiveHandler}
         />
@@ -28,7 +27,6 @@ function Menu({ menuActive }) {
       <Link to="/dashboard/new_note" className={Styles.link}>
         <Option
           text="Nueva Nota"
-          menuActive={menuActive}
           active={active}
           onActiveHandler={onActiveHandler}
         />
@@ -36,7 +34,6 @@ function Menu({ menuActive }) {
       <Link to="/dashboard/notes" className={Styles.link}>
         <Option
           text="Notas"
-          menuActive={menuActive}
           active={active}
           onActiveHandler={onActiveHandler}
         />
@@ -44,7 +41,6 @@ function Menu({ menuActive }) {
       <Link to="/dashboard/notifications" className={Styles.link}>
         <Option
           text="Notificaciones"
-          menuActive={menuActive}
           active={active}
           onActiveHandler={onActiveHandler}
         />
@@ -52,7 +48,6 @@ function Menu({ menuActive }) {
       <Link to="/dashboard/settings" className={Styles.link}>
         <Option
           text="Configuración"
-          menuActive={menuActive}
           active={active}
           onActiveHandler={onActiveHandler}
         />
@@ -60,7 +55,6 @@ function Menu({ menuActive }) {
 
       <Option
         text="Salir"
-        menuActive={menuActive}
         active={active}
         onActiveHandler={onActiveHandler}
         onLogoutHandler={onLogoutHandler}
@@ -69,4 +63,4 @@ function Menu({ menuActive }) {
   );
 }
 
-export default Menu;
+export default MenuOptions;

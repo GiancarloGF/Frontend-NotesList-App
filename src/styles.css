@@ -2,11 +2,18 @@
   /* COLORS */
   --white: #fff;
   --gray: #333;
-  --blue: #2980b9;
-  --lightblue: #008997;
-  --primary: #2980B9;
+  --blue: #1733EA;
+  --lightblue: #1733EA;
+  --primary: #1733EA;
   --primary-light: #2980b926;
   --ternary: #A3AED0;
+  --black: #000;
+  --gray1: #333;
+  --gray2: #4f4f4f;
+  --gray3: #828282;
+  --gray4: #bdbdbd;
+  --gray5: #e0e0e0;
+  --gray6: #f2f2f2;
   /* RADII */
   --button-radius: 0.7rem;
   /* SIZES */

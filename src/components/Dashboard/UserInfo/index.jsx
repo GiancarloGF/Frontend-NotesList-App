@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Styles from "./styles.module.css";
-import avatar_img from "../../images/avatar01.svg";
+import avatar_img from "../../../images/avatar01.svg";
 function UserInfo() {
   const navigate = useNavigate();
   const[name, setName] = useState("");

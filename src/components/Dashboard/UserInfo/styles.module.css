@@ -26,9 +26,9 @@
 .info .name {
   font-size: 1.2rem;
   font-weight: bold;
-  color: var(--primary);
+  color: var(--blue);
 }
 .info .email {
   font-size: 0.7rem;
-  color: var(--ternary);
+  color: var(--gray4);
 }

@@ -7,12 +7,7 @@ function GeneralReport() {
   return (
     <>
       <div className={Styles.container}>
-        <div className={Styles.widgets}>
-          <UserWidget />
-          <WeatherWidget />
-          <UserWidget />
-          <WeatherWidget />
-        </div>
+
       </div>
       {/* <div className={Styles.bottom}></div> */}
     </>
