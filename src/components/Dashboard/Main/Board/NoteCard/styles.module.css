@@ -1,0 +1,140 @@
+.noteCard_container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.5em 1fr 4fr 1fr;
+  padding: 0.5rem 0.8rem;
+  justify-content: start;
+  cursor: pointer;
+}
+
+.noteCard_container:hover {
+  height: max-content;
+  z-index: 99;
+}
+
+.noteCard_container.light {
+  background-color: var(--white);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.noteCard_container.dark {
+  background-color: var(--gray2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* STATUS */
+.status_container {
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  border-radius: 50%;
+  height: 0.8rem;
+  width: 0.8rem;
+}
+.circle.created {
+  background-color: var(--gray5);
+}
+
+.circle.in_progress {
+  background-color: var(--yellow);
+}
+.circle.completed {
+  background-color: var(--green);
+}
+
+.status {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+.status.created {
+  color: var(--gray5);
+}
+
+.status.in_progress {
+  color: var(--yellow);
+}
+.status.completed {
+  color: var(--green);
+}
+
+/* NOTE TITLE */
+
+.title {
+  font-size: 1.5rem;
+}
+
+.title.light {
+  color: var(--gray3);
+}
+.title.dark {
+  color: var(--white);
+}
+/* COMMMENT */
+.comment {
+  padding-top: 0.5rem;
+  overflow:hidden;
+}
+
+.comment.light {
+  color: var(--gray3);
+}
+.comment.dark {
+  color: var(--white);
+}
+
+/* FOOTER */
+
+.footer_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.line.light {
+  color: var(--gray3);
+}
+.line.dark {
+  color: var(--white);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date {
+  font-size: 0.8rem;
+}
+
+.date.light {
+  color: var(--gray3);
+}
+.date.dark {
+  color: var(--white);
+}
+/* OPTIONS */
+.options {
+  display: flex;
+}
+
+.circle_option {
+  border-radius: 50%;
+  height: 0.3rem;
+  width: 0.3rem;
+  margin-right: 0.3rem;
+}
+
+.circle_option.light {
+  background-color: var(--gray3);
+}
+.circle_option.dark {
+  background-color: var(--white);
+}

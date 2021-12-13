@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Styles from "./styles.module.css";
-import avatar_img from "../../../images/avatar01.svg";
+import avatar_img from "../../../../images/avatar01.svg";
 function UserInfo() {
   const navigate = useNavigate();
+  const color_theme=useSelector(state => state.colorTheme)
   const[name, setName] = useState("");
   const[email, setEmail] =useState("");
   const uppFirstLetter = (string) => {
@@ -23,7 +25,7 @@ function UserInfo() {
   }, []);
 
   return (
-    <div className={Styles.container}>
+    <div className={`${Styles.userInfo_container} ${Styles[color_theme]}`}>
       <div className={Styles.avatar}>
         <img src={avatar_img} alt="" className={Styles.img} />
       </div>

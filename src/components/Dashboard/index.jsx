@@ -1,12 +1,13 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Outlet , useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Styles from "./styles.module.css";
-import Search from "./Search/index";
-import UserInfo from "./UserInfo/index";
-import Menu from './Menu/index';
+import Menu from "./Menu/index";
+import Main from "./Main/index";
+
 function Dashboard() {
-  const isMenuActive = useSelector(state => state.isMenuActive);
+  const isMenuActive = useSelector((state) => state.isMenuActive);
+  const color_theme = useSelector((state) => state.colorTheme);
   const navigate = useNavigate();
   useEffect(() => {
     const user = JSON.parse(window.localStorage.getItem("loggedNoteappUser"));
@@ -16,15 +17,13 @@ function Dashboard() {
   }, []);
 
   return (
-    <main className={`${Styles.container} ${isMenuActive && Styles.menu_active}`}>
-      <Menu/>
-      <div className={Styles.rightContainer}>
-        <div className={Styles.top}>
-          <UserInfo />
-          <Search />
-        </div>
-        <Outlet />
-      </div>
+    <main
+      className={`${Styles.dashboard_container} ${
+        isMenuActive && Styles.menu_active
+      } ${Styles[color_theme]}`}
+    >
+      <Menu />
+      <Main />
     </main>
   );
 }
