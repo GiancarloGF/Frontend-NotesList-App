@@ -9,8 +9,9 @@
 }
 
 .noteCard_container:hover {
-  height: max-content;
-  z-index: 99;
+  /* height: max-content;
+  z-index: 99; */
+  transform: scale(1.05);
 }
 
 .noteCard_container.light {

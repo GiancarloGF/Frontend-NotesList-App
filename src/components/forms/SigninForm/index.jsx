@@ -23,10 +23,8 @@ function SigninForm() {
     try {
       event.preventDefault();
       const user = await loginService.login({ email, password });
-      console.log(user);
       window.localStorage.setItem("loggedNoteappUser", JSON.stringify(user));
       noteService.setToken(user.token);
-      // dispatch({ type: "USER/SET_USER", payload: user });
       dispatch({ type: "USER/SET_USER", payload: user });
       dispatch({ type: "NOTIFICATION/LOGIN_SUCCESS" });
       setEmail("");
@@ -41,6 +39,7 @@ function SigninForm() {
       setTimeout(() => dispatch({ type: "NOTIFICATION/RESET" }), 3000);
     }
   };
+  
   return (
     <div className="container__form container--signin">
       {/**Mensajecustomizado */}
