@@ -31,7 +31,7 @@ function UserInfo() {
       </div>
       <div className={Styles.info}>
         <div>
-          <span>Bienvenido, </span>
+          <span className={Styles.welcome}>Bienvenido, </span>  
           <span className={Styles.name}>{name===""?"":uppFirstLetter(name)+"!"}</span>
           <br />
         </div>

@@ -38,6 +38,9 @@
   font-weight: bold;
   color: var(--blue);
 }
+.userInfo_container.dark .info .welcome{
+  color: var(--white);
+}
 .info .email {
   font-size: 0.7rem;
   color: var(--gray4);
