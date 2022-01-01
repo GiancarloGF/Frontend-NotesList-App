@@ -11,7 +11,7 @@
 .noteCard_container:hover {
   /* height: max-content;
   z-index: 99; */
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 
 .noteCard_container.light {
@@ -30,10 +30,14 @@
   align-items: center;
 }
 
+.status_container .status{
+  font-size: 0.7rem;
+}
+
 .circle {
   border-radius: 50%;
-  height: 0.8rem;
-  width: 0.8rem;
+  height: 0.7rem;
+  width: 0.7rem;
 }
 .circle.created {
   background-color: var(--gray5);
