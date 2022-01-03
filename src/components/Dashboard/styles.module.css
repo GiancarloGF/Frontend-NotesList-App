@@ -1,0 +1,23 @@
+.dashboard_container {
+  width: 100%;
+  max-width: 1280px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 40px auto;
+  transition: all 0.2s ease;
+
+}
+
+
+.dashboard_container.light {
+  background-color: var(--gray6);
+}
+.dashboard_container.dark {
+  background-color: var(--gray1);
+}
+
+.dashboard_container.menu_active{
+  display: grid;
+  grid-template-columns: 170px auto;
+}
+

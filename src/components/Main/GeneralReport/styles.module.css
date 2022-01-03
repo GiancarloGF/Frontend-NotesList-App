@@ -1,0 +1,14 @@
+.generalReport_container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    gap: 2rem;
+    height: 100%;
+  }
+
+.widgets{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem  ;
+    justify-content: center;
+}

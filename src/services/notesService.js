@@ -1,6 +1,6 @@
 import axios from "axios";
-const baseUrl = "/api/notes";//URL relativa. https://fullstackopen.com/es/part3/implementacion_de_la_aplicacion_en_internet#proxy
-
+// const baseUrl = "/api/notes";//URL relativa. https://fullstackopen.com/es/part3/implementacion_de_la_aplicacion_en_internet#proxy
+const baseUrl='http://localhost:3001/api/notes'
 // At first, token is set with a null value. Once we logged successfully, token variable will have a valid value.
 let token=null
 //👆
@@ -10,9 +10,9 @@ const setToken=(newToken) => {
 }
 
 // Function to get back all notes.
-const getAll = () => {
-  const request = axios.get(baseUrl);
-  return request.then((response) => response.data);
+const getAll = async() => {
+  const request = await axios.get(baseUrl);
+  return request.data;
 };
 
 // Function to create a new note
@@ -26,9 +26,9 @@ const create = async (newObject) => {
 };
 
 // Function to uddate a note.
-const update = (id, newObject) => {
-  const request = axios.put(`${baseUrl}/${id}`, newObject);
-  return request.then((response) => response.data);
+const update = async (id, newObject) => {
+  const request = await axios.put(`${baseUrl}/${id}`, newObject);
+  return request.data;
 };
 
 export default {

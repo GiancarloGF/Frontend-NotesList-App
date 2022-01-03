@@ -1,0 +1,47 @@
+.userInfo_container {
+  display: flex;
+  height: 80%;
+  justify-content: flex-start;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  width: max-content;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+
+}
+
+.userInfo_container.light {
+  background-color: var(--white);
+  box-shadow: -1px 1px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.userInfo_container.dark {
+  background-color: var(--gray2);
+  box-shadow: -1px 1px 10px 1px rgba(255, 255, 255, 0.1);
+}
+
+.avatar {
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  margin-right: 0.6rem;
+}
+
+.avatar .img {
+  max-height: 100%;
+}
+
+.info .name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--blue);
+}
+.userInfo_container.dark .info .welcome{
+  color: var(--white);
+}
+.info .email {
+  font-size: 0.7rem;
+  color: var(--gray4);
+}

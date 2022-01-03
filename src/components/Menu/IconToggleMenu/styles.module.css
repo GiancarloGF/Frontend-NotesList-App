@@ -1,0 +1,13 @@
+.iconToggleMenu_container{
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconToggle {
+    font-size: 1.5rem;
+    color: var(--primary);
+  }
+  
+  
