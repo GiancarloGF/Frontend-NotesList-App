@@ -1,7 +1,7 @@
 import React from "react";
 // import { useSelector } from "react-redux";
 import Styles from "./styles.module.css";
-import Icon from "../../../Icons/index";
+import Icon from "../../Icons/index";
 import { useSelector } from "react-redux";
 function Option({
   text,

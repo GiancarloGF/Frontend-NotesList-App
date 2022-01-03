@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "./../../../Icons/index.jsx";
+import Icon from "./../../Icons/index.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import Styles from "./styles.module.css";
 function ColorThemeIcon() {

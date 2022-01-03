@@ -1,0 +1,23 @@
+.newNoteCard_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+
+.newNoteCard_container.light {
+  border: 1px dashed var(--ternary);
+  /* background-color: var(--white); */
+}
+
+.newNoteCard_container.dark {
+  border: 1px dashed var(--white);
+}
+
+.newIcon{
+  font-size: 4rem;
+  color: var(--ternary);
+  opacity: .5;
+}

@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Welcome from './components/Welcome/index';
 import Dashboard from './components/Dashboard/index';
-import GeneralReport from './components/Dashboard/Main/GeneralReport/index';
-import Notes from './components/Dashboard/Main/Notes/index';
-import NewNote from './components/Dashboard/Main/NewNote/index';
-import Setting from './components/Dashboard/Main/Setting/index';
-import Notifications from './components/Dashboard/Main/Notifications/index';
+import GeneralReport from './components/Main/GeneralReport/index';
+import Notes from './components/Main/Notes/index';
+import NewNote from './components/Main/NewNote/index';
+import Setting from './components/Main/Setting/index';
+import Notifications from './components/Main/Notifications/index';
 function _App() {
     
     return (

@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import Styles from "./styles.module.css";
 import NoteCard from "./NoteCard/index";
-import { getAllAction } from "../../../../store/features/notes/notesSlice";
+import NewNoteCard from "./NewNoteCard/index";
+
+import { getAllAction } from "../../../store/features/notes/notesSlice";
 import { useDispatch, useSelector } from "react-redux";
 // import noteService from "../../../../services/notesService";
 function Board() {
@@ -14,6 +16,7 @@ function Board() {
   return (
     <div className={Styles.board_container}>
       <div className={`${Styles.created} ${Styles.column}`}>
+        <NewNoteCard />
         {allNotes.map((note) => {
           if (note.status === "created") {
             return (

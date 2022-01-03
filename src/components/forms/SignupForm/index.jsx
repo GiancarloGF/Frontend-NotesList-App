@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../../buttons/BtnLogInOut/index';
+import Button from '../../Button';
 import Styles from './styles.module.css';
 
 function SignupForm() {
@@ -12,7 +12,7 @@ function SignupForm() {
             <a href="#" className={Styles.link}>
               ¿Olvidaste tu contraseña?{" "}
             </a>
-            <Button variation="primary" text="Registrarme" />
+            <Button variant="primary" text="Registrarme" />
           </form>
         </div>
     )

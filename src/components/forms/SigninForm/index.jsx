@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Button from "../../buttons/BtnLogInOut/index";
+import Button from "../../Button";
 import Styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,53 +50,61 @@ function SigninForm() {
         password: Yup.string()
           .max(15, "Must be 10 characters or less")
           .required("Required"),
-      })  }
+      })}
       onSubmit={(values, { setSubmitting }) => {
         handleLogin(values);
         setSubmitting(false);
       }}
     >
-        <div className="container__form container--signin">
-          {/**Mensajecustomizado */}
-          {notification && <Notification notification={notification} />}
-          <Form
-            // action="#"
-            // className="form"
-            // id="form1"
-            // onSubmit={formik.handleSubmit}
-          >
-            <h2 className="form__title">Ingreso</h2>
-            <Field
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Correo"
-              className={Styles.input}
-              // onChange={formik.handleChange}
-              // onBlur={formik.handleBlur}
-              // value={formik.values.email}
-            />
-            {/* {formik.touched.email && formik.errors.email ? (
+      <div className="container__form container--signin">
+        {/**Mensajecustomizado */}
+        {notification && <Notification notification={notification} />}
+        <Form
+        // action="#"
+        // className="form"
+        // id="form1"
+        // onSubmit={formik.handleSubmit}
+        >
+          <h2 className="form__title">Ingreso</h2>
+          <Field
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Correo"
+            className={Styles.input}
+            // onChange={formik.handleChange}
+            // onBlur={formik.handleBlur}
+            // value={formik.values.email}
+          />
+          {/* {formik.touched.email && formik.errors.email ? (
               <div>{formik.errors.email}</div>
             ) : null} */}
-             <ErrorMessage name="email" component="span" className={Styles.ErrorMessage}/>
-            <Field
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Contraseña"
-              className={Styles.input}
-              // onChange={formik.handleChange}
-              // onBlur={formik.handleBlur}
-              // value={formik.values.password}
-            />
-            {/* {formik.touched.password && formik.errors.password ? (
+          <ErrorMessage
+            name="email"
+            component="span"
+            className={Styles.ErrorMessage}
+          />
+          <Field
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Contraseña"
+            className={Styles.input}
+            // onChange={formik.handleChange}
+            // onBlur={formik.handleBlur}
+            // value={formik.values.password}
+          />
+          {/* {formik.touched.password && formik.errors.password ? (
               <div>{formik.errors.password}</div>
             ) : null} */}
-             <ErrorMessage name="password"  component="span" className={Styles.ErrorMessage}/>
-            <Button variation="primary" text="Ingresar" />
-          </Form>
-        </div>
+          <ErrorMessage
+            name="password"
+            component="span"
+            className={Styles.ErrorMessage}
+          />
+          <Button variant="primary" text="Ingresar" />
+        </Form>
+      </div>
     </Formik>
   );
 }

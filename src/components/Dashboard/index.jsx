@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Styles from "./styles.module.css";
-import Menu from "./Menu/index";
-import Main from "./Main/index";
+import Menu from "../Menu/index";
+import Main from "../Main/index.jsx";
 
 function Dashboard() {
   const isMenuActive = useSelector((state) => state.isMenuActive);

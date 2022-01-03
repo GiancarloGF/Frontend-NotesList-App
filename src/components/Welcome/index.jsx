@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch} from "react-redux";
 import "./styles.css";
-import Button from "../buttons/BtnLogInOut/index";
+import Button from "../Button";
 import SignupForm from '../forms/SignupForm/index';
 import SigninForm from '../forms/SigninForm/index';
 function Welcome() {
@@ -40,16 +40,16 @@ function Welcome() {
           <div className="overlay">
             <div className="overlay__panel overlay--right">
               <Button
-                variation="secondary"
+                variant="secondary--outlined"
                 text="Registrame"
-                onClick={onSignUp}
+                handleClick={onSignUp}
               />
             </div>
             <div className="overlay__panel overlay--left">
               <Button
-                variation="secondary"
+                variant="secondary--outlined"
                 text="Ingresar"
-                onClick={onSignIn}
+                handleClick={onSignIn}
               />
             </div>
           </div>
