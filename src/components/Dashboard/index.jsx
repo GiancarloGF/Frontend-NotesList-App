@@ -10,6 +10,7 @@ import noteService from "../../services/notesService";
 function Dashboard() {
   const isMenuActive = useSelector((state) => state.isMenuActive);
   const color_theme = useSelector((state) => state.colorTheme);
+  const notification = useSelector((state) => state.notification);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,6 +30,7 @@ function Dashboard() {
         isMenuActive && Styles.menu_active
       } ${Styles[color_theme]}`}
     >
+      {notification.message!==null && <div className={`${Styles.notification} ${Styles[notification.status]}`}>{notification.message}</div>}
       <Menu />
       <Main />
     </main>

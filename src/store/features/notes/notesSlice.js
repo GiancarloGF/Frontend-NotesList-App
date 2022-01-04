@@ -51,10 +51,17 @@ export const createAction = (newNoteObj) => {
         try {
             const payload = await noteService.create(newNoteObj);
             dispatch({ type: 'NOTES/FETCH_CREATE_SUCCESS', payload: payload });
+            dispatch({ type: 'NOTIFICATION/SUCCESS_MESSAGE', payload: 'Nota creada exitosamente' });
+            setTimeout(() => {
+                dispatch({ type: 'NOTIFICATION/RESET' });
+            }, 2000);
         } catch (error) {
+            dispatch({ type: 'NOTIFICATION/ERROR_MESSAGE', payload: 'No se pudo crear la nota' });
+            setTimeout(() => {
+                dispatch({ type: 'NOTIFICATION/RESET' });
+            }, 2000);
             console.log(error);
         }
-
     }
 }
 

@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: 40px auto;
   transition: all 0.2s ease;
-
+  position: relative;
 }
 
 
@@ -21,3 +21,20 @@
   grid-template-columns: 170px auto;
 }
 
+/* NOTIFICATION */
+.notification{
+  position: absolute;
+  left: 45%;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+}
+
+.notification.success{
+  color: var(--success);
+  background: var(--success-20)
+}
+
+.notification.error{
+  color: var(--danger);
+  background: var(--danger-20)
+}
