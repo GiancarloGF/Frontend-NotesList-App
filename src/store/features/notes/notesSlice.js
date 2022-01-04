@@ -18,7 +18,16 @@ const notesReducer = (state = initialNotes, action) => {
             return { ...state, loading: false, error: action.payload };
         }
         case 'NOTES/FETCH_SUCCESS': {
-            return { ...state, notes: action.payload , loading: false, error: "" };
+            return { ...state, notes: action.payload, loading: false, error: "" };
+        }
+        case 'NOTES/FETCH_CREATE_REQUEST': {
+            return { ...state, loading: true };
+        }
+        case 'NOTES/FETCH_CREATE_ERROR': {
+            return { ...state, loading: false, error: action.payload };
+        }
+        case 'NOTES/FETCH_CREATE_SUCCESS': {
+            return { ...state, notes: [...state.notes, action.payload], loading: false, error: "" };
         }
         default: {
             return state;
@@ -28,15 +37,24 @@ const notesReducer = (state = initialNotes, action) => {
 
 export const getAllAction = () => {
     return async (dispatch, getState) => {
-        const payload = await noteService.getAll();
-        dispatch({ type: 'NOTES/FETCH_SUCCESS', payload: payload });
+        try {
+            const payload = await noteService.getAll();
+            dispatch({ type: 'NOTES/FETCH_SUCCESS', payload: payload });
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
-export const createAction = () => {
+export const createAction = (newNoteObj) => {
     return async (dispatch, getState) => {
-        const payload = await noteService.create();
-        dispatch({ type: 'NOTES/FETCH_SUCCESS', payload: payload });
+        try {
+            const payload = await noteService.create(newNoteObj);
+            dispatch({ type: 'NOTES/FETCH_CREATE_SUCCESS', payload: payload });
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 }
 

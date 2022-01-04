@@ -13,10 +13,10 @@ const NewNoteCard = () => {
   const [showModal, setShowModal] = useState(false);
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
-  const handleConfirm = () => {
-    console.log("Confirm");
-    handleClose();
-  };
+  // const handleConfirm = () => {
+  //   console.log("Confirm");
+  //   handleClose();
+  // };
   return (
     <>
       <div
@@ -29,7 +29,7 @@ const NewNoteCard = () => {
       </div>
       {showModal && (
         <Modal handleClose={handleClose} >
-          <NewNoteForm handleClose={handleClose} handleConfirm={handleConfirm}/>
+          <NewNoteForm handleClose={handleClose}/>
         </Modal>
       )}
     </>
