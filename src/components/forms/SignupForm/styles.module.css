@@ -1,4 +1,4 @@
-form {
+.form {
     background-color: var(--white);
     display: flex;
     align-items: center;
@@ -9,7 +9,7 @@ form {
     text-align: center;
   }
 
-input {
+.input {
     background-color: #fff;
     border: none;
     padding: 0.9rem 0.9rem;
