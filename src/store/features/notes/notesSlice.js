@@ -1,7 +1,6 @@
 import noteService from '../../../services/notesService';
 // import { createAsyncThunk } from '@reduxjs/toolkit'
-
-
+// import {useSelector, useDispatch} from 'react-redux';
 const initialNotes = {
     notes: [],
     loading: false,
@@ -29,16 +28,43 @@ const notesReducer = (state = initialNotes, action) => {
         case 'NOTES/FETCH_CREATE_SUCCESS': {
             return { ...state, notes: [...state.notes, action.payload], loading: false, error: "" };
         }
+        case 'NOTES/UPDATE_NOTES': {
+            return { ...state, notes: action.payload, loading: false, error: "" };
+        }
         default: {
             return state;
         }
     }
 }
 
+
+
+export const toggleOptionsAction = (id, notes) => {
+    const notesUpdated = notes.map(note => {
+        if (note.id === id) {
+            return { ...note, showingOptions: !note.showingOptions }
+        }else{
+            return { ...note, showingOptions: false }
+        }
+    });
+    return {
+        type: 'NOTES/UPDATE_NOTES',
+        payload: notesUpdated
+    }
+}
+
 export const getAllAction = () => {
     return async (dispatch, getState) => {
         try {
-            const payload = await noteService.getAll();
+            const response = await noteService.getAll();
+            const payload = response.map(note => {
+                return {
+                    ...note,
+                    editing: false,
+                    showingOptions: false
+                }
+            });
+
             dispatch({ type: 'NOTES/FETCH_SUCCESS', payload: payload });
         } catch (error) {
             console.log(error);

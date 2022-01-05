@@ -1,22 +1,21 @@
 import React, { useState } from "react";
 import Styles from "./styles.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
 import Button from "../../../../Button";
 import { AiOutlineClose } from "react-icons/ai";
+import { toggleOptionsAction } from "../../../../../store/features/notes/notesSlice";
 
-function Options({ handleCloseOptions }) {
-  const handleDelete = () => {
-    const isDelete = window.confirm("¿Desea eliminar esta nota?");
-    if (isDelete) {
-      console.log("Delete");
-      handleCloseOptions();
-    }
+function Options({ handleShowOptions, handleEdit, handleDelete }) {
+  const onDelete = () => {
+    handleDelete();
+    handleShowOptions();
   };
-  const handleEdit = () => {
-    console.log("Edit");
-    handleCloseOptions();
+  const onEdit = () => {
+    handleEdit();
+    handleShowOptions();
   };
+
   return (
     <div className={Styles.options}>
       <div className={Styles.options_buttons}>
@@ -24,23 +23,23 @@ function Options({ handleCloseOptions }) {
           variant="danger--outlined"
           text="Eliminar"
           size="small"
-          handleClick={handleDelete}
+          handleClick={onDelete}
         />
         <Button
           variant="primary"
           text="Editar"
           size="small"
-          handleClick={handleEdit}
+          handleClick={onEdit}
         />
       </div>
-      <div className={Styles.close_icon} onClick={handleCloseOptions}>
+      <div className={Styles.close_icon} onClick={handleShowOptions}>
         <AiOutlineClose />
       </div>
     </div>
   );
 }
 
-function Footer({ date, handleOpenOptions }) {
+function Footer({ date, handleShowOptions }) {
   const color_theme = useSelector((state) => state.colorTheme);
   const date_formatted = moment(date).format("YYYY-MM-DD");
 
@@ -49,7 +48,7 @@ function Footer({ date, handleOpenOptions }) {
       <span className={`${Styles.date} ${Styles[color_theme]}`}>
         {date_formatted}
       </span>
-      <div className={Styles.options} onClick={handleOpenOptions}>
+      <div className={Styles.options} onClick={handleShowOptions}>
         <div className={`${Styles.circle_option} ${Styles[color_theme]}`}></div>
         <div className={`${Styles.circle_option} ${Styles[color_theme]}`}></div>
         <div className={`${Styles.circle_option} ${Styles[color_theme]}`}></div>
@@ -58,22 +57,27 @@ function Footer({ date, handleOpenOptions }) {
   );
 }
 
-export default function NoteCardFooter() {
+export default function NoteCardFooter({ handleEdit, handleDelete, id }) {
+  const dispatch = useDispatch();
   const color_theme = useSelector((state) => state.colorTheme);
-  const [showOptions, setShowOptions] = useState(false);
-  const handleOpenOptions = () => {
-    setShowOptions(true);
+  const notes = useSelector((state) => state.notes.notes);
+  const currentNote = notes.find((note) => note.id === id);
+
+  const handleShowOptions = () => {
+    dispatch(toggleOptionsAction(id, notes));
   };
-  const handleCloseOptions = () => {
-    setShowOptions(false);
-  };
+
   return (
     <div className={Styles.footer_container}>
       <hr className={`${Styles.line} ${Styles[color_theme]}`} />
-      {showOptions ? (
-        <Options handleCloseOptions={handleCloseOptions} />
+      {currentNote.showingOptions ? (
+        <Options
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
+          handleShowOptions={handleShowOptions}
+        />
       ) : (
-        <Footer handleOpenOptions={handleOpenOptions} />
+        <Footer handleShowOptions={handleShowOptions} />
       )}
     </div>
   );

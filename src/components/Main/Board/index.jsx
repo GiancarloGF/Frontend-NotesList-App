@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 // import noteService from "../../../../services/notesService";
 function Board() {
   const dispatch = useDispatch();
+  // const state = useSelector((state) => state);
+  // console.log(state);
   let allNotes = useSelector((state) => state.notes.notes);
   useEffect(() => {
     dispatch(getAllAction());
@@ -27,6 +29,7 @@ function Board() {
                 title={note.title}
                 status={note.status}
                 date={note.date}
+                id={note.id}
               />
             );
           }
@@ -43,6 +46,7 @@ function Board() {
                 title={note.title}
                 status={note.status}
                 date={note.date}
+                id={note.id}
               />
             );
           }
@@ -59,6 +63,7 @@ function Board() {
                 title={note.title}
                 status={note.status}
                 date={note.date}
+                id={note.id}
               />
             );
           }
