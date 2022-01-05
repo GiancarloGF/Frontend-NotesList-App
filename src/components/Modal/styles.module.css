@@ -7,6 +7,7 @@
   background-color: #000;
   opacity: 0.5;
   z-index: 99;
+  cursor: auto;
 }
 
 .modal_content {
@@ -20,6 +21,7 @@
   transform: translate(-50%, -50%);
   border-radius: 4px;
   z-index: 9999;
+  cursor: auto;
 }
 
 .modal_content.light {

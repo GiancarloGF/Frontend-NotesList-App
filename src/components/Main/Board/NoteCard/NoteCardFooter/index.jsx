@@ -5,15 +5,22 @@ import moment from "moment";
 import Button from "../../../../Button";
 import { AiOutlineClose } from "react-icons/ai";
 import { toggleOptionsAction } from "../../../../../store/features/notes/notesSlice";
+import Modal from "../../../../Modal";
+import EditNoteForm from "../../../../forms/EditNoteForm";
 
-function Options({ handleShowOptions, handleEdit, handleDelete }) {
+function Options({ handleShowOptions, handleEdit, handleDelete, id }) {
+  const [showModal, setShowModal] = useState(false);
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
+
   const onDelete = () => {
     handleDelete();
     handleShowOptions();
   };
   const onEdit = () => {
     handleEdit();
-    handleShowOptions();
+    // handleShowOptions();
+    handleShow();
   };
 
   return (
@@ -35,6 +42,11 @@ function Options({ handleShowOptions, handleEdit, handleDelete }) {
       <div className={Styles.close_icon} onClick={handleShowOptions}>
         <AiOutlineClose />
       </div>
+      {showModal && (
+        <Modal handleClose={handleClose}>
+          <EditNoteForm handleClose={handleClose} id={id}/>
+        </Modal>
+      )}
     </div>
   );
 }
@@ -75,6 +87,7 @@ export default function NoteCardFooter({ handleEdit, handleDelete, id }) {
           handleEdit={handleEdit}
           handleDelete={handleDelete}
           handleShowOptions={handleShowOptions}
+          id={id}
         />
       ) : (
         <Footer handleShowOptions={handleShowOptions} />

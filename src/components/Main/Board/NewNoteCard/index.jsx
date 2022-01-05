@@ -13,10 +13,7 @@ const NewNoteCard = () => {
   const [showModal, setShowModal] = useState(false);
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
-  // const handleConfirm = () => {
-  //   console.log("Confirm");
-  //   handleClose();
-  // };
+
   return (
     <>
       <div
