@@ -1,7 +1,7 @@
 import Styles from "./styles.module.css";
 
 export default function Button({ handleClick, text, type, variant, size }) {
-  const size_class = size ? `${Styles[size]}` : "normal";
+  const size_class = size ? `${Styles[size]}` : `${Styles.normal}`;
   return (
     <button
       type={type?type:"text"}

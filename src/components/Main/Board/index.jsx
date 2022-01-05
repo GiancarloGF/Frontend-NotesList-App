@@ -3,7 +3,7 @@ import Styles from "./styles.module.css";
 import NoteCard from "./NoteCard/index";
 import NewNoteCard from "./NewNoteCard/index";
 
-import { getAllAction } from "../../../store/features/notes/notesSlice";
+import { getNotesAction } from "../../../store/features/notes/notesSlice";
 import { useDispatch, useSelector } from "react-redux";
 // import noteService from "../../../../services/notesService";
 function Board() {
@@ -12,7 +12,7 @@ function Board() {
   // console.log(state);
   let allNotes = useSelector((state) => state.notes.notes);
   useEffect(() => {
-    dispatch(getAllAction());
+    dispatch(getNotesAction());
   }, [dispatch]);
 
   return (

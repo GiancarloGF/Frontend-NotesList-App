@@ -7,20 +7,47 @@ import { AiOutlineClose } from "react-icons/ai";
 import { toggleOptionsAction } from "../../../../../store/features/notes/notesSlice";
 import Modal from "../../../../Modal";
 import EditNoteForm from "../../../../forms/EditNoteForm";
+import ConfirmAction from "../../../../ConfirmAction";
+import { deleteNoteAction } from "../../../../../store/features/notes/notesSlice";
 
-function Options({ handleShowOptions, handleEdit, handleDelete, id }) {
-  const [showModal, setShowModal] = useState(false);
-  const handleClose = () => setShowModal(false);
-  const handleShow = () => setShowModal(true);
+export default function NoteCardFooter({ handleDelete, id }) {
+  const dispatch = useDispatch();
+  const color_theme = useSelector((state) => state.colorTheme);
+  const notes = useSelector((state) => state.notes.notes);
+  const currentNote = notes.find((note) => note.id === id);
+
+  const handleShowOptions = () => {
+    dispatch(toggleOptionsAction(id, notes));
+  };
+
+  return (
+    <div className={Styles.footer_container}>
+      <hr className={`${Styles.line} ${Styles[color_theme]}`} />
+      {currentNote.showingOptions ? (
+        <Options
+          handleDelete={handleDelete}
+          handleShowOptions={handleShowOptions}
+          id={id}
+        />
+      ) : (
+        <Footer handleShowOptions={handleShowOptions} />
+      )}
+    </div>
+  );
+}
+
+function Options({ handleShowOptions, id }) {
+  const dispatch=useDispatch();
+  // const [showModal, setShowModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const onDelete = () => {
-    handleDelete();
-    handleShowOptions();
+    setShowDeleteModal(true);
+    // handleShowOptions();
   };
   const onEdit = () => {
-    handleEdit();
-    // handleShowOptions();
-    handleShow();
+    setShowEditModal(true);
   };
 
   return (
@@ -42,9 +69,23 @@ function Options({ handleShowOptions, handleEdit, handleDelete, id }) {
       <div className={Styles.close_icon} onClick={handleShowOptions}>
         <AiOutlineClose />
       </div>
-      {showModal && (
-        <Modal handleClose={handleClose}>
-          <EditNoteForm handleClose={handleClose} id={id}/>
+      {showEditModal && (
+        <Modal handleClose={() => setShowEditModal(false)}>
+          <EditNoteForm handleClose={() => setShowEditModal(false)} id={id} />
+        </Modal>
+      )}
+      {showDeleteModal && (
+        <Modal handleClose={() => setShowDeleteModal(false)}>
+          {/* <EditNoteForm handleClose={()=>setShowDeleteModal(false)} id={id}/> */}
+          <ConfirmAction
+            text="¿Desea eliminar la nota seleccionada?"
+            handleCancel={() => setShowDeleteModal(false)}
+            handleConfirm={() => {
+              dispatch(deleteNoteAction(id));
+              setShowDeleteModal(false);
+            }}
+            handleClose={() => setShowDeleteModal(false)}
+          />
         </Modal>
       )}
     </div>
@@ -65,33 +106,6 @@ function Footer({ date, handleShowOptions }) {
         <div className={`${Styles.circle_option} ${Styles[color_theme]}`}></div>
         <div className={`${Styles.circle_option} ${Styles[color_theme]}`}></div>
       </div>
-    </div>
-  );
-}
-
-export default function NoteCardFooter({ handleEdit, handleDelete, id }) {
-  const dispatch = useDispatch();
-  const color_theme = useSelector((state) => state.colorTheme);
-  const notes = useSelector((state) => state.notes.notes);
-  const currentNote = notes.find((note) => note.id === id);
-
-  const handleShowOptions = () => {
-    dispatch(toggleOptionsAction(id, notes));
-  };
-
-  return (
-    <div className={Styles.footer_container}>
-      <hr className={`${Styles.line} ${Styles[color_theme]}`} />
-      {currentNote.showingOptions ? (
-        <Options
-          handleEdit={handleEdit}
-          handleDelete={handleDelete}
-          handleShowOptions={handleShowOptions}
-          id={id}
-        />
-      ) : (
-        <Footer handleShowOptions={handleShowOptions} />
-      )}
     </div>
   );
 }
