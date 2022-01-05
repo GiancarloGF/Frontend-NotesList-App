@@ -5,29 +5,31 @@
   grid-template-rows: 1.5em 1fr 4fr 1fr;
   padding: 0.5rem 0.8rem;
   justify-content: start;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
-.noteCard_container:hover {
+.noteCard_container.light:hover,.noteCard_container.dark:hover {
   /* height: max-content;
   z-index: 99; */
-  transform: scale(1.01);
+  /* transform: scale(1.01); */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .noteCard_container.light {
   background-color: var(--white);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .noteCard_container.dark {
   background-color: var(--gray2);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* STATUS */
 .status_container {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .status_container .status{
@@ -90,56 +92,19 @@
   color: var(--white);
 }
 
-/* FOOTER */
 
-.footer_container {
-  display: flex;
-  flex-direction: column;
-}
 
-.line {
-  width: 100%;
-  margin: 0.5rem 0;
+/* STAR */
+.star{
+  position: absolute;
+  right: 0;
 }
 
-.line.light {
-  color: var(--gray3);
-}
-.line.dark {
-  color: var(--white);
+.fillStar{
+  fill: yellow;
 }
 
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.outlineStar{
+  fill: var(--gray3)
 }
 
-.date {
-  font-size: 0.8rem;
-}
-
-.date.light {
-  color: var(--gray3);
-}
-.date.dark {
-  color: var(--white);
-}
-/* OPTIONS */
-.options {
-  display: flex;
-}
-
-.circle_option {
-  border-radius: 50%;
-  height: 0.3rem;
-  width: 0.3rem;
-  margin-right: 0.3rem;
-}
-
-.circle_option.light {
-  background-color: var(--gray3);
-}
-.circle_option.dark {
-  background-color: var(--white);
-}

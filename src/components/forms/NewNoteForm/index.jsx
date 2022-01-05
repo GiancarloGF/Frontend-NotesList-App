@@ -36,7 +36,7 @@ function NewNoteForm({ handleClose }) {
       title,
       comment,
       status,
-      isImportant,
+      important:isImportant,
     }
     
     dispatch(createAction(newNote));
@@ -79,12 +79,14 @@ function NewNoteForm({ handleClose }) {
           handleClick={handleClose}
           variant="danger--outlined"
           text="Cancelar"
+          size="normal"
         />
         <Button
           type="submit"
           handleClick={handleConfirm}
           variant="primary"
           text="Crear Nota"
+          size="normal"
         />
       </div>
     </div>

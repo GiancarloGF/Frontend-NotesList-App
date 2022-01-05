@@ -22,7 +22,7 @@ function Board() {
             return (
               <NoteCard
                 key={note.id}
-                isImportant={note.isImportant}
+                isImportant={note.important}
                 comment={note.comment}
                 title={note.title}
                 status={note.status}
@@ -38,7 +38,7 @@ function Board() {
             return (
               <NoteCard
                 key={note.id}
-                isImportant={note.isImportant}
+                isImportant={note.important}
                 comment={note.comment}
                 title={note.title}
                 status={note.status}
@@ -54,7 +54,7 @@ function Board() {
             return (
               <NoteCard
                 key={note.id}
-                isImportant={note.isImportant}
+                isImportant={note.important}
                 comment={note.comment}
                 title={note.title}
                 status={note.status}
