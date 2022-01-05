@@ -16,6 +16,12 @@
   --gray6: #f2f2f2;
   --yellow: #F2C94C;
   --green: #27ae60;
+  --success: rgba(39,174, 96, 1);
+  --success-20: rgba(39,174, 96, .2);
+  --success-25: rgba(39,174, 96, .25);
+  --danger: rgba(235, 87, 87, 1);
+  --danger-20: rgba(235, 87, 87, .2);
+  --danger-25: rgba(235, 87, 87, .25);
   /* RADII */
   --button-radius: 0.7rem;
   /* SIZES */

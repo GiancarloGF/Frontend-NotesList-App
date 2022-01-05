@@ -3,15 +3,17 @@ import { useSelector } from "react-redux";
 import Styles from "./styles.module.css";
 import { VscDiffAdded } from "react-icons/vsc";
 import Modal from "../../../Modal";
+import NewNoteForm from "../../../forms/NewNoteForm";
+
+
+
+
 const NewNoteCard = () => {
   const color_theme = useSelector((state) => state.colorTheme);
   const [showModal, setShowModal] = useState(false);
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
-  const handleConfirm = () => {
-    console.log("Confirm");
-    handleClose();
-  };
+
   return (
     <>
       <div
@@ -23,7 +25,9 @@ const NewNoteCard = () => {
         </div>
       </div>
       {showModal && (
-        <Modal handleConfirm={handleConfirm} handleClose={handleClose} />
+        <Modal handleClose={handleClose} >
+          <NewNoteForm handleClose={handleClose}/>
+        </Modal>
       )}
     </>
   );

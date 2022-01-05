@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 // import noteService from "../../../../services/notesService";
 function Board() {
   const dispatch = useDispatch();
+  // const state = useSelector((state) => state);
+  // console.log(state);
   let allNotes = useSelector((state) => state.notes.notes);
   useEffect(() => {
     dispatch(getAllAction());
@@ -22,11 +24,12 @@ function Board() {
             return (
               <NoteCard
                 key={note.id}
-                isImportant={note.isImportant}
+                isImportant={note.important}
                 comment={note.comment}
                 title={note.title}
                 status={note.status}
                 date={note.date}
+                id={note.id}
               />
             );
           }
@@ -38,11 +41,12 @@ function Board() {
             return (
               <NoteCard
                 key={note.id}
-                isImportant={note.isImportant}
+                isImportant={note.important}
                 comment={note.comment}
                 title={note.title}
                 status={note.status}
                 date={note.date}
+                id={note.id}
               />
             );
           }
@@ -54,11 +58,12 @@ function Board() {
             return (
               <NoteCard
                 key={note.id}
-                isImportant={note.isImportant}
+                isImportant={note.important}
                 comment={note.comment}
                 title={note.title}
                 status={note.status}
                 date={note.date}
+                id={note.id}
               />
             );
           }

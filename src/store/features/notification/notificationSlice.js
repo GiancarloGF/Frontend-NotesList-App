@@ -1,3 +1,5 @@
+import { Action } from "history";
+
 //SUCCESS OR ERROR MESSAGE REDUCER
 const initialNotification = {
     message: null,
@@ -10,6 +12,12 @@ const notificationReducer = (state = initialNotification, action) => {
         }
         case 'NOTIFICATION/LOGIN_ERROR': {
             return state = { ...state, message: 'Email o Contraseña erroneas', status: 'error' }
+        }
+        case 'NOTIFICATION/SUCCESS_MESSAGE': {
+            return state = { ...state, message: action.payload, status: 'success' }
+        }
+        case 'NOTIFICATION/ERROR_MESSAGE': {
+            return state = { ...state, message: action.payload, status: 'error' }
         }
         case 'NOTIFICATION/RESET': {
             return state = {

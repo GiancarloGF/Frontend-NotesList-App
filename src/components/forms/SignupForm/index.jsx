@@ -5,10 +5,10 @@ import Styles from './styles.module.css';
 function SignupForm() {
     return (
         <div className="container__form container--signup">
-          <form action="#" className="form" id="form2">
+          <form action="#" className={Styles.form} id="form2">
             <h2 className="form__title">Registro</h2>
-            <input type="email" placeholder="Correo"/>
-            <input type="password" placeholder="Contraseña"/>
+            <input type="email" placeholder="Correo" className={Styles.input}/>
+            <input type="password" placeholder="Contraseña" className={Styles.input}/>
             <a href="#" className={Styles.link}>
               ¿Olvidaste tu contraseña?{" "}
             </a>

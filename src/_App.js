@@ -10,19 +10,21 @@ import Notifications from './components/Main/Notifications/index';
 function _App() {
     
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Welcome/>}/>
-                
-                <Route path="/dashboard/" element={<Dashboard/>}>
-                    <Route path="" element={<GeneralReport/>}/>
-                    <Route path="notes" element={<Notes/>}/>
-                    <Route path="new_note" element={<NewNote/>}/>
-                    <Route path="notifications" element={<Notifications/>}/>
-                    <Route path="settings" element={<Setting/>}/>
-                </Route>
-            </Routes>
-        </Router>
+        <>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Welcome/>}/>
+                    
+                    <Route path="/dashboard/" element={<Dashboard/>}>
+                        <Route path="" element={<GeneralReport/>}/>
+                        <Route path="notes" element={<Notes/>}/>
+                        <Route path="new_note" element={<NewNote/>}/>
+                        <Route path="notifications" element={<Notifications/>}/>
+                        <Route path="settings" element={<Setting/>}/>
+                    </Route>
+                </Routes>
+            </Router>
+        </>
     )
 }
 
