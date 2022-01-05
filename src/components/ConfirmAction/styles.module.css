@@ -1,0 +1,18 @@
+.container{
+    width: 300px;
+    height: 100px;
+    background-color: #fff;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+.buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: .5rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.text{
+    text-align: center;
+}

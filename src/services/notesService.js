@@ -31,10 +31,17 @@ const update = async (id, newObject) => {
   return request.data;
 };
 
+// Function to uddate a note.
+const deleteNote = async (id) => {
+   await axios.delete(`${baseUrl}/${id}`);
+  // return request.data;
+};
+
 export default {
   getAll,
   create,
   update,
-  setToken
+  setToken,
+  deleteNote
 };
 

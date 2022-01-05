@@ -7,7 +7,7 @@ import Textarea from "../../Inputs/Textarea";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 // import noteService from "../../../services/notesService";
 import { useDispatch, useSelector } from "react-redux";
-import { updateAction } from "../../../store/features/notes/notesSlice";
+import { updateNoteAction } from "../../../store/features/notes/notesSlice";
 
 function EditNoteForm({ handleClose, id }) {
   const dispatch = useDispatch();
@@ -40,7 +40,7 @@ function EditNoteForm({ handleClose, id }) {
       important: isImportant,
     };
 
-    dispatch(updateAction(id,newNote));
+    dispatch(updateNoteAction(id,newNote));
     handleClose();
   };
 

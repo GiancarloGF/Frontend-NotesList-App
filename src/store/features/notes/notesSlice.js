@@ -41,6 +41,13 @@ const notesReducer = (state = initialNotes, action) => {
                 error: ""
             };
         }
+        case 'NOTES/DELETE_NOTE': {
+            return {
+                ...state, notes: [...state.notes].filter(note => {
+                    return note.id !== action.payload
+                }), loading: false, error: ""
+            };
+        }
         default: {
             return state;
         }
@@ -63,7 +70,7 @@ export const toggleOptionsAction = (id, notes) => {
     }
 }
 
-export const getAllAction = () => {
+export const getNotesAction = () => {
     return async (dispatch, getState) => {
         try {
             const response = await noteService.getAll();
@@ -82,7 +89,7 @@ export const getAllAction = () => {
     }
 }
 
-export const createAction = (newNoteObj) => {
+export const createNoteAction = (newNoteObj) => {
     return async (dispatch, getState) => {
         try {
             const payload = await noteService.create(newNoteObj);
@@ -101,11 +108,10 @@ export const createAction = (newNoteObj) => {
     }
 }
 
-export const updateAction = (id, noteUpdatedObj) => {
+export const updateNoteAction = (id, noteUpdatedObj) => {
     return async (dispatch, getState) => {
         try {
             const response = await noteService.update(id, noteUpdatedObj);
-            console.log(response);
             dispatch({ type: 'NOTES/UPDATE_NOTE', payload: response });
             dispatch({ type: 'NOTIFICATION/SUCCESS_MESSAGE', payload: 'Nota editada exitosamente' });
             setTimeout(() => {
@@ -121,6 +127,24 @@ export const updateAction = (id, noteUpdatedObj) => {
     }
 }
 
+export const deleteNoteAction = (id) => {
+    return async (dispatch, getState) => {
+        try {
+            await noteService.deleteNote(id);
+            dispatch({ type: 'NOTES/DELETE_NOTE', payload: id });
+            dispatch({ type: 'NOTIFICATION/SUCCESS_MESSAGE', payload: 'Nota eliminada exitosamente' });
+            setTimeout(() => {
+                dispatch({ type: 'NOTIFICATION/RESET' });
+            }, 2000);
+        } catch (error) {
+            dispatch({ type: 'NOTIFICATION/ERROR_MESSAGE', payload: 'No se pudo eliminar la nota' });
+            setTimeout(() => {
+                dispatch({ type: 'NOTIFICATION/RESET' });
+            }, 2000);
+        }
+
+    }
+}
 // export const getAllAction = createAsyncThunk(
 //     'NOTES/GET_ALL_NOTES', // action type
 //     async (arg, thunkAPI) => {// payload creator
@@ -137,11 +161,11 @@ export const addNoteAction = (payload) => {
     }
 }
 
-export const deleteNoteAction = (payload) => {
-    return {
-        type: "NOTES/DELETE_NOTE",
-        payload
-    }
-}
+// export const deleteNoteAction = (payload) => {
+//     return {
+//         type: "NOTES/DELETE_NOTE",
+//         payload
+//     }
+// }
 
 export default notesReducer;
