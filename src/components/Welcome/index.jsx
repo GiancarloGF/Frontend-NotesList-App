@@ -8,6 +8,8 @@ import SigninForm from '../forms/SigninForm/index';
 function Welcome() {
   
   const [showSignIn, setShowSignIn] = useState(true);
+  // const [toCleanSignin, setToCleanSignin] = useState(false);
+  // const [toCleanSignup, setToCleanSignup] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -22,19 +24,23 @@ function Welcome() {
   const rightPanel_className = showSignIn ? "" : "right-panel-active";
   const onSignIn = () => {
     console.log("Sign In");
+    // setToCleanSignin(true);
+    // setToCleanSignup(false);
     setShowSignIn(true);
   };
   const onSignUp = () => {
     console.log("Sign Up");
+    // setToCleanSignup(true);
+    // setToCleanSignin(false);
     setShowSignIn(false);
   };
   return (
     <main id="welcome" className="welcome">
       <div className={`container ${rightPanel_className}`}>
         {/* <!--  Sign Up  --> */}
-        <SignupForm />
+        <SignupForm showSignIn={showSignIn}/>
         {/* <!-- Sign In  --> */}
-        <SigninForm />
+        <SigninForm showSignIn={showSignIn}/>
         {/* <!-- Overlay   --> */}
         <div className="container__overlay">
           <div className="overlay">

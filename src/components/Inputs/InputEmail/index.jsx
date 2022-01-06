@@ -1,24 +1,25 @@
 import React from "react";
 import Styles from "./styles.module.css";
 
-export default function InputEmail({ formik, labelText, placeholder, id }) {
+export default function InputEmail({
+  formik,
+  labelText,
+  placeholder,
+  id,
+  behave,
+}) {
   return (
     <div
       className={`${Styles.inputContainer} ${
-        formik.touched[id] && formik.errors[id] && Styles.error
+        behave && formik.touched[id] && formik.errors[id] && Styles.error
       }
-              
-              ${
-                formik.touched[id] &&
-                !formik.errors[id] &&
-                Styles.success
-              }`}
+       ${behave && formik.touched[id] && !formik.errors[id] && Styles.success}`}
     >
       <label htmlFor={id} className={Styles.label}>
         {labelText}
       </label>
       <input
-        id={id}
+        // id={id}
         type="email"
         placeholder={placeholder}
         {...formik.getFieldProps(id)}

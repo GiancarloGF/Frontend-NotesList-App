@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Styles from "./styles.module.css";
@@ -12,7 +12,7 @@ import InputPassword from "../../Inputs/InputPassword";
 
 import * as Yup from "yup";
 
-function SigninForm() {
+function SigninForm({showSignIn}) {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const currentNotification = useSelector(notificationSelector);
@@ -37,6 +37,13 @@ function SigninForm() {
       setSubmitting(false);
     },
   });
+
+  // console.log(formik.handleChange);
+
+  useEffect(() => {
+    
+    formik.resetForm();
+  } , [showSignIn]);
   return (
     <div className="container__form container--signin">
       {currentNotification.message !== null && (
@@ -50,12 +57,14 @@ function SigninForm() {
             labelText="Correo"
             id="email"
             placeholder="jhonDoe@email.com"
+            behave= {true}
           />
           <InputPassword
             formik={formik}
             labelText="Contraseña"
             id="password"
             placeholder="123456"
+            behave= {true}
           />
           
         </div>

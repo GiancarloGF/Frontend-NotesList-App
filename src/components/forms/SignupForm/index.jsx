@@ -12,8 +12,9 @@ import InputText from "../../Inputs/InputText";
 import InputEmail from "../../Inputs/InputEmail";
 import InputPassword from "../../Inputs/InputPassword";
 import * as Yup from "yup";
+import { useEffect } from "react";
 
-function SignupForm() {
+function SignupForm({showSignIn}) {
   // const dispatch = useDispatch();
   // let navigate = useNavigate();
   // const currentNotification = useSelector(notificationSelector);
@@ -49,6 +50,13 @@ function SignupForm() {
       setSubmitting(false);
     },
   });
+  useEffect(() => {
+    // if (toClean) {
+    //   formik.resetForm();
+    // }
+    formik.resetForm();
+  } , [showSignIn]);
+
 
   return (
     <div className="container__form container--signup">
@@ -64,18 +72,21 @@ function SignupForm() {
             labelText="Nombre de Usuario"
             id="userName"
             placeholder="Jhon Doe"
+            behave= {true}
           />
           <InputEmail
             formik={formik}
             labelText="Correo"
             id="email"
             placeholder="jhonDoe@email.com"
+            behave= {true}
           />
           <InputPassword
             formik={formik}
             labelText="Contraseña"
             id="password"
             placeholder="123456"
+            behave= {true}
           />
         </div>
         
