@@ -5,7 +5,7 @@ export default function Button({ handleClick, text, type, variant, size }) {
   return (
     <button
       type={type?type:"text"}
-      onClick={handleClick?handleClick:""}
+      onClick={handleClick?handleClick:()=>{}}
       className={`${Styles.btn} ${Styles[variant]} ${size_class}`}
     >
       <span>{text}</span>

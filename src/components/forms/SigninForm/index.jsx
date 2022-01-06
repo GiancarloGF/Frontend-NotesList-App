@@ -1,111 +1,70 @@
-import React, { useEffect, useState } from "react";
-import Button from "../../Button";
-import Styles from "./styles.module.css";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import loginService from "../../../services/loginService";
-import noteService from "../../../services/notesService";
-import Notification from "../../Notification/index";
-// import {userSelector} from '../../../store/features/user/userSlice';
+import { useNavigate } from "react-router-dom";
+import Styles from "./styles.module.css";
 import { notificationSelector } from "../../../store/features/notification/notificationSlice";
-// import { useFormik } from "formik";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { useFormik } from "formik";
+import { setUserAction } from "../../../store/features/user/userSlice";
+import Button from "../../Button";
+import Notification from "../../Notification/index";
+import InputEmail from "../../Inputs/InputEmail";
+import InputPassword from "../../Inputs/InputPassword";
+
 import * as Yup from "yup";
 
 function SigninForm() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  const notification = useSelector(notificationSelector);
+  const currentNotification = useSelector(notificationSelector);
 
-  //HandleEvent to validate login and save token from server each time we log in.
-  const handleLogin = async ({ email, password }) => {
-    try {
-      // event.preventDefault();
-      console.log("entre al try");
-      const user = await loginService.login({ email, password });
-      window.localStorage.setItem("loggedNoteappUser", JSON.stringify(user));
-      noteService.setToken(user.token);
-      dispatch({ type: "USER/SET_USER", payload: user });
-      dispatch({ type: "NOTIFICATION/LOGIN_SUCCESS" });
-      setTimeout(() => {
-        dispatch({ type: "NOTIFICATION/RESET" });
-        navigate("/dashboard");
-      }, 1500);
-    } catch (exception) {
-      // event.preventDefault();
-      console.log("entre al catch");
-      dispatch({ type: "NOTIFICATION/LOGIN_ERROR" });
-      setTimeout(() => dispatch({ type: "NOTIFICATION/RESET" }), 3000);
-    }
+  const handleLogin = ({ email, password }) => {
+    dispatch(setUserAction(email, password)).then(() => navigate("/dashboard"));
   };
 
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email("Correo Invalido").required("Correo Requerido"),
+      password: Yup.string()
+        .max(15, "Debe tener menos de 15 caracteres")
+        .required("Contraseña requerida"),
+    }),
+    onSubmit: (values, { setSubmitting }) => {
+      handleLogin({ email: values.email, password: values.password });
+      setSubmitting(false);
+    },
+  });
   return (
-    <Formik
-      initialValues={{
-        email: "",
-        password: "",
-      }}
-      validationSchema={Yup.object({
-        email: Yup.string().email("Invalid email address").required("Required"),
-        password: Yup.string()
-          .max(15, "Must be 10 characters or less")
-          .required("Required"),
-      })}
-      onSubmit={(values, { setSubmitting }) => {
-        handleLogin(values);
-        setSubmitting(false);
-      }}
-    >
-      <div className="container__form container--signin">
-        {/**Mensajecustomizado */}
-        {notification && <Notification notification={notification} />}
-        <Form
-        // action="#"
-        // className="form"
-        // id="form1"
-        // onSubmit={formik.handleSubmit}
-        >
-          <h2 className="form__title">Ingreso</h2>
-          <Field
+    <div className="container__form container--signin">
+      {currentNotification.message !== null && (
+        <Notification notification={currentNotification} />
+      )}
+      <form className={Styles.form} onSubmit={formik.handleSubmit}>
+        <h2 className={Styles.headerText}>Ingreso</h2>
+        <div className={Styles.inputsContainer}>
+        <InputEmail
+            formik={formik}
+            labelText="Correo"
             id="email"
-            name="email"
-            type="email"
-            placeholder="Correo"
-            className={Styles.input}
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            // value={formik.values.email}
+            placeholder="jhonDoe@email.com"
           />
-          {/* {formik.touched.email && formik.errors.email ? (
-              <div>{formik.errors.email}</div>
-            ) : null} */}
-          <ErrorMessage
-            name="email"
-            component="span"
-            className={Styles.ErrorMessage}
-          />
-          <Field
+          <InputPassword
+            formik={formik}
+            labelText="Contraseña"
             id="password"
-            name="password"
-            type="password"
-            placeholder="Contraseña"
-            className={Styles.input}
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            // value={formik.values.password}
+            placeholder="123456"
           />
-          {/* {formik.touched.password && formik.errors.password ? (
-              <div>{formik.errors.password}</div>
-            ) : null} */}
-          <ErrorMessage
-            name="password"
-            component="span"
-            className={Styles.ErrorMessage}
-          />
-          <Button variant="primary" text="Ingresar" />
-        </Form>
-      </div>
-    </Formik>
+          
+        </div>
+        <a href="#" className={Styles.link}>
+          ¿Olvidaste tu contraseña?{" "}
+        </a>
+        <Button variant="primary" text="Ingresar" />
+      </form>
+    </div>
   );
 }
 

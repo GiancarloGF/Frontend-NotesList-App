@@ -24,13 +24,13 @@ function MenuOptions() {
           onActiveHandler={onActiveHandler}
         />
       </Link>
-      <Link to="/dashboard/new_note" className={Styles.link}>
+      {/* <Link to="/dashboard/new_note" className={Styles.link}>
         <Option
           text="Nueva Nota"
           active={active}
           onActiveHandler={onActiveHandler}
         />
-      </Link>
+      </Link> */}
       <Link to="/dashboard/notes" className={Styles.link}>
         <Option
           text="Notas"

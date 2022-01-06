@@ -82,7 +82,7 @@
 /* COMMMENT */
 .comment {
   padding-top: 0.5rem;
-  overflow:hidden;
+  overflow-y: auto;
 }
 
 .comment.light {

@@ -6,7 +6,8 @@ import Button from "../Button";
 import SignupForm from '../forms/SignupForm/index';
 import SigninForm from '../forms/SigninForm/index';
 function Welcome() {
-
+  
+  const [showSignIn, setShowSignIn] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -15,10 +16,9 @@ function Welcome() {
       dispatch({ type: "USER/SET_USER", payload: local_user_data });
       navigate("/dashboard");
     }
-  }, []);
+  }, [dispatch, navigate]);
 
 
-  const [showSignIn, setShowSignIn] = useState(true);
   const rightPanel_className = showSignIn ? "" : "right-panel-active";
   const onSignIn = () => {
     console.log("Sign In");
@@ -40,14 +40,14 @@ function Welcome() {
           <div className="overlay">
             <div className="overlay__panel overlay--right">
               <Button
-                variant="secondary--outlined"
+                variant="secondary"
                 text="Registrame"
                 handleClick={onSignUp}
               />
             </div>
             <div className="overlay__panel overlay--left">
               <Button
-                variant="secondary--outlined"
+                variant="secondary"
                 text="Ingresar"
                 handleClick={onSignIn}
               />
