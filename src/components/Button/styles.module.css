@@ -25,35 +25,46 @@
 /* NORMAL BUTTONS */
 
 /* Primary */
-.primary {
+.btn.primary {
   background-color: rgba(47, 128, 237, .2);
 }
-.primary > span {
+.btn.primary > span {
   color: rgba(47, 128, 237, 1);
 }
-.primary:hover {
+.btn.primary:hover {
   background-color: rgba(47, 128, 237, .25);
 }
 
+/* Secondary */
+.btn.secondary {
+  background-color: var(--gray6);
+}
+.btn.secondary > span {
+  color: rgba(47, 128, 237, 1);
+}
+.btn.secondary:hover {
+  background-color: var(--gray5);
+}
+
 /* Danger */
-.danger {
+.btn.danger {
   background-color: rgba(235, 87, 87, .2);
 }
-.danger > span {
+.btn.danger > span {
   color: rgba(235, 87, 87, 1);
 }
-.danger:hover {
+.btn.danger:hover {
   background-color: rgba(235, 87, 87, .25);
 }
 
 /* Success */
-.success {
+.btn.success {
   background-color: rgba(39,174, 96, .2);
 }
-.success > span {
+.btn.success > span {
   color: rgba(39,174, 96, 1);
 }
-.success:hover {
+.btn.success:hover {
   background-color: rgba(39,174, 96, .25);
 }
 
@@ -62,23 +73,23 @@
 /* OUTLINED BUTTONS */
 
 /* Primary */
-.primary--outlined {
+.btn.primary--outlined {
   background-color: transparent;
   border: 1px solid rgba(47, 128, 237, 0.2);
 }
-.primary--outlined > span {
+.btn.primary--outlined > span {
   color: rgba(47, 128, 237, 1);
 }
-.primary--outlined:hover {
+.btn.primary--outlined:hover {
   background-color: rgba(47, 128, 237, 0.25);
 }
 
-/* Primary */
-.secondary--outlined {
+/* Secondary */
+.btn.secondary--outlined {
   background-color: transparent;
   border: 1px solid #fff;
 }
-.secondary--outlined > span {
+.btn.secondary--outlined > span {
   color: #fff;
 }
 /* .secondary--outlined:hover {
@@ -86,14 +97,14 @@
 } */
 
 /* Danger */
-.danger--outlined {
+.btn.danger--outlined {
   background-color: transparent;
   border: 1px solid rgba(235, 87, 87, 0.2);
 }
-.danger--outlined > span {
+.btn.danger--outlined > span {
   color: rgba(235, 87, 87, 1);
 }
-.danger--outlined:hover {
+.btn.danger--outlined:hover {
   background-color: rgba(235, 87, 87, 0.25);
 }
 

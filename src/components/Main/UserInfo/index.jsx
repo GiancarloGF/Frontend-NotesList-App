@@ -4,38 +4,29 @@ import { useSelector } from "react-redux";
 import Styles from "./styles.module.css";
 import avatar_img from "../../../images/avatar01.svg";
 function UserInfo() {
-  const navigate = useNavigate();
-  const color_theme=useSelector(state => state.colorTheme)
-  const[name, setName] = useState("");
-  const[email, setEmail] =useState("");
-  const uppFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  const colorTheme = useSelector((state) => state.colorTheme);
+  let user = useSelector((state) => state.user);
 
-  useEffect(() => {
-    if (name === "" && email === "") {
-      const user = JSON.parse(window.localStorage.getItem("loggedNoteappUser"));
-      if (user !== null) {
-        setName(user.name);
-        setEmail(user.email);
-      } else {
-        navigate("/");
-      }
+  const uppFirstLetter = (userName) => {
+    if (userName) {
+      return userName.charAt(0).toUpperCase() + userName.slice(1);
     }
-  }, []);
+  };
 
   return (
-    <div className={`${Styles.userInfo_container} ${Styles[color_theme]}`}>
+    <div className={`${Styles.userInfo_container} ${Styles[colorTheme]}`}>
       <div className={Styles.avatar}>
         <img src={avatar_img} alt="" className={Styles.img} />
       </div>
       <div className={Styles.info}>
         <div>
-          <span className={Styles.welcome}>Bienvenido, </span>  
-          <span className={Styles.name}>{name===""?"":uppFirstLetter(name)+"!"}</span>
+          <span className={Styles.welcome}>Bienvenido, </span>
+          <span className={Styles.name}>
+            {user.userName ? uppFirstLetter(user.userName) + "!" : ""}
+          </span>
           <br />
         </div>
-        <span className={Styles.email}>{email}</span>
+        <span className={Styles.email}>{user.email}</span>
       </div>
     </div>
   );

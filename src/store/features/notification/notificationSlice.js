@@ -7,12 +7,6 @@ const initialNotification = {
 };
 const notificationReducer = (state = initialNotification, action) => {
     switch (action.type) {
-        case 'NOTIFICATION/LOGIN_SUCCESS': {
-            return state = { ...state, message: 'Login Exitoso', status: 'success' }
-        }
-        case 'NOTIFICATION/LOGIN_ERROR': {
-            return state = { ...state, message: 'Email o Contraseña erroneas', status: 'error' }
-        }
         case 'NOTIFICATION/SUCCESS_MESSAGE': {
             return state = { ...state, message: action.payload, status: 'success' }
         }

@@ -116,12 +116,12 @@ export const updateNoteAction = (id, noteUpdatedObj) => {
             dispatch({ type: 'NOTIFICATION/SUCCESS_MESSAGE', payload: 'Nota editada exitosamente' });
             setTimeout(() => {
                 dispatch({ type: 'NOTIFICATION/RESET' });
-            }, 2000);
+            }, 2500);
         } catch (error) {
             dispatch({ type: 'NOTIFICATION/ERROR_MESSAGE', payload: 'No se pudo editar la nota' });
             setTimeout(() => {
                 dispatch({ type: 'NOTIFICATION/RESET' });
-            }, 2000);
+            }, 2500);
         }
 
     }
@@ -135,12 +135,12 @@ export const deleteNoteAction = (id) => {
             dispatch({ type: 'NOTIFICATION/SUCCESS_MESSAGE', payload: 'Nota eliminada exitosamente' });
             setTimeout(() => {
                 dispatch({ type: 'NOTIFICATION/RESET' });
-            }, 2000);
+            }, 2500);
         } catch (error) {
             dispatch({ type: 'NOTIFICATION/ERROR_MESSAGE', payload: 'No se pudo eliminar la nota' });
             setTimeout(() => {
                 dispatch({ type: 'NOTIFICATION/RESET' });
-            }, 2000);
+            }, 2500);
         }
 
     }
