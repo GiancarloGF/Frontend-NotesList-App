@@ -13,15 +13,15 @@ import InputEmail from "../../Inputs/InputEmail";
 import InputPassword from "../../Inputs/InputPassword";
 import * as Yup from "yup";
 import { useEffect } from "react";
-
+import {signupAction} from '../../../store/features/user/userSlice';
 function SignupForm({showSignIn}) {
-  // const dispatch = useDispatch();
-  // let navigate = useNavigate();
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
   // const currentNotification = useSelector(notificationSelector);
 
-  const handleRegister = ({ userName, email, password }) => {
+  const handleRegister = (credentials) => {
     // dispatch(setUserAction(email, password)).then(() => navigate("/dashboard"));
-    console.log(userName, email, password);
+    dispatch(signupAction(credentials)).then(() => navigate("/dashboard"));
   };
 
   const formik = useFormik({

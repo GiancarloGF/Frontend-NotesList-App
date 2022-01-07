@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Styles from "./styles.module.css";
 import { notificationSelector } from "../../../store/features/notification/notificationSlice";
 import { useFormik } from "formik";
-import { setUserAction } from "../../../store/features/user/userSlice";
+import { signinAction } from "../../../store/features/user/userSlice";
 import Button from "../../Button";
 import Notification from "../../Notification/index";
 import InputEmail from "../../Inputs/InputEmail";
@@ -18,7 +18,7 @@ function SigninForm({showSignIn}) {
   const currentNotification = useSelector(notificationSelector);
 
   const handleLogin = ({ email, password }) => {
-    dispatch(setUserAction(email, password)).then(() => navigate("/dashboard"));
+    dispatch(signinAction(email, password)).then(() => navigate("/dashboard"));
   };
 
   const formik = useFormik({

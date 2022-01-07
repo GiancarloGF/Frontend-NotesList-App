@@ -6,17 +6,18 @@ import avatar_img from "../../../images/avatar01.svg";
 function UserInfo() {
   const navigate = useNavigate();
   const color_theme=useSelector(state => state.colorTheme)
-  const[name, setName] = useState("");
+  const[userName, setUserName] = useState("");
   const[email, setEmail] =useState("");
+  
   const uppFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
   useEffect(() => {
-    if (name === "" && email === "") {
+    if (userName === "" && email === "") {
       const user = JSON.parse(window.localStorage.getItem("loggedNoteappUser"));
       if (user !== null) {
-        setName(user.name);
+        setUserName(user.userName);
         setEmail(user.email);
       } else {
         navigate("/");
@@ -32,7 +33,7 @@ function UserInfo() {
       <div className={Styles.info}>
         <div>
           <span className={Styles.welcome}>Bienvenido, </span>  
-          <span className={Styles.name}>{name===""?"":uppFirstLetter(name)+"!"}</span>
+          <span className={Styles.name}>{userName===""?"":uppFirstLetter(userName)+"!"}</span>
           <br />
         </div>
         <span className={Styles.email}>{email}</span>
