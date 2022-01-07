@@ -30,6 +30,7 @@
 
 .modal_content.dark {
   background-color: var(--gray2);
+  color: var(--white);
 }
 
 

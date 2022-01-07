@@ -11,8 +11,20 @@
   align-self: center;
   cursor: pointer;
   line-height: 1.1;
-  /* background-color: #fff; */
-  /* background-image: linear-gradient(to top, #f9f9f9, #fff 33%); */
+}
+
+.input_container.light {
+  background-color: var(--white);
+}
+.input_container.dark {
+  background-color: var(--gray2);
+}
+
+.input_container.light .input{
+  color: var(--gray2);
+}
+.input_container.dark .input{
+  color: var(--white);
 }
 
 .input {
