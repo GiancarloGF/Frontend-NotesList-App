@@ -1,6 +1,11 @@
 import axios from "axios";
-// const baseUrl = "/api/notes";//URL relativa. https://fullstackopen.com/es/part3/implementacion_de_la_aplicacion_en_internet#proxy
-const baseUrl='http://localhost:3001/api/notes'
+let BASE_URL = '/api/notes'
+// let BASE_URL = 'https://notexapp.herokuapp.com/api/notes'
+
+if (process.env.NODE_ENV === 'development') {
+    BASE_URL = 'http://localhost:3001/api/notes'
+}
+// const baseUrl = "https://notexapp.herokuapp.com/api/notes";
 // At first, token is set with a null value. Once we logged successfully, token variable will have a valid value.
 let token=null
 //👆
@@ -11,7 +16,7 @@ const setToken=(newToken) => {
 
 // Function to get back all notes.
 const getAll = async() => {
-  const request = await axios.get(baseUrl);
+  const request = await axios.get(BASE_URL);
   return request.data;
 };
 
@@ -21,19 +26,19 @@ const create = async (newObject) => {
   const config={
     headers:{Authorization: token}
   };
-  const response = await axios.post(baseUrl, newObject, config);//Response from the server with confirmation of created note.
+  const response = await axios.post(BASE_URL, newObject, config);//Response from the server with confirmation of created note.
   return response.data;//Send back the response to the frontend (React).
 };
 
 // Function to uddate a note.
 const update = async (id, newObject) => {
-  const request = await axios.put(`${baseUrl}/${id}`, newObject);
+  const request = await axios.put(`${BASE_URL}/${id}`, newObject);
   return request.data;
 };
 
 // Function to uddate a note.
 const deleteNote = async (id) => {
-   await axios.delete(`${baseUrl}/${id}`);
+   await axios.delete(`${BASE_URL}/${id}`);
   // return request.data;
 };
 

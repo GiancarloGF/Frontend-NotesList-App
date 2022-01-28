@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
-    gap: 2rem;
+    gap: 1rem;
     height: 100%;
   }
 
@@ -11,4 +11,13 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem  ;
     justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    .generalReport_container{
+        grid-template-columns: 1fr;
+    }
+    .widgets{
+      padding: 0 2rem;
+  }
 }

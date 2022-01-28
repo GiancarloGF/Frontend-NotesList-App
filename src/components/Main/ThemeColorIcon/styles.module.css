@@ -9,11 +9,11 @@
 }
 
 .colorThemeIcon_container.light{
-    color: var(--gray1);
+    color: var(--primary);
 }
 
 
 
 .colorThemeIcon_container.dark{
-    color: var(--gray6);
+    color: var(--yellow);
 }

@@ -1,5 +1,4 @@
 import notesService from "../../../services/notesService";
-import { useNavigate } from "react-router-dom";
 import loginService from "../../../services/loginService"
 import registerService from "../../../services/registerService"
 

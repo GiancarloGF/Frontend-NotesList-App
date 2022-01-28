@@ -34,12 +34,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "react-scripts start -- --env.NODE_ENV=development",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open"
   },
-  "proxy": "http://localhost:3000",
+  "proxy": "http://localhost:3001",
   "browserslist": [
     ">0.2%",
     "not dead",
