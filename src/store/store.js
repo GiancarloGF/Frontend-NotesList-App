@@ -7,7 +7,7 @@ import showAllReducer from './features/showAll/showAllSlice';
 import userReducer from './features/user/userSlice';
 import menuActiveReducer from './features/menuActive/menuActiveSlice';
 import colorThemeReducer from './features/colorTheme/colorThemeSlice';
-
+import weatherReducer from './features/weather/weatherSlice';
 
 const reducers = {
     notes: notesReducer, 
@@ -15,7 +15,8 @@ const reducers = {
     notification: notificationReducer,
     user: userReducer,
     isMenuActive: menuActiveReducer,
-    colorTheme: colorThemeReducer
+    colorTheme: colorThemeReducer,
+    weather: weatherReducer
 }
 
 

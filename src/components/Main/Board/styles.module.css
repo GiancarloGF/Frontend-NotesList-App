@@ -1,25 +1,30 @@
-.board_container{
-    display: grid;
-    grid-template-columns: repeat(3, minmax(150px, 250px));
-    grid-gap: 40px;
-    padding: 20px 40px;
-    width: 100%;
-    height: 100%;
-    /* background-color: tomato; */
-    overflow-y: scroll;
-    overflow-x: hidden;
+.board_container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 250px));
+  grid-gap: 40px;
+  padding: 20px 40px;
+  width: 100%;
+  height: 100%;
+  /* background-color: tomato; */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin; /* Firefox supported only */
+}
+/* .board_container::-webkit-scrollbar {
+  display: block;
+} */
+
+
+.column {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 200px;
+  grid-gap: 20px;
 }
 
-.column{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: 200px;
-    grid-gap: 20px;
-}
-
-.task_container{
-    height: 100%;
-    background-color: #000;
+.task_container {
+  height: 100%;
+  background-color: #000;
 }
 /* .created{
 }
@@ -31,3 +36,15 @@
 .completed{
 
 } */
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 650px) {
+  .board_container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+
+  }
+}
