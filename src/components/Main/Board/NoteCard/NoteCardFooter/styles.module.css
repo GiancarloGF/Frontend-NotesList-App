@@ -39,7 +39,6 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  cursor: pointer;
 }
 
 .options_buttons {
@@ -64,5 +63,7 @@
 }
 
 .close_icon{
-    color: var(--gray5)
+    color: var(--gray5);
+    cursor: pointer;
+
 }

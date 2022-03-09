@@ -5,6 +5,7 @@
   grid-template-rows: 1.5em 1fr 4fr 1fr;
   padding: 0.5rem 0.8rem;
   justify-content: start;
+  border-radius: 5px;
   /* cursor: pointer; */
 }
 
@@ -17,12 +18,12 @@
 
 .noteCard_container.light {
   background-color: var(--white);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); */
 }
 
 .noteCard_container.dark {
   background-color: var(--gray2);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); */
 }
 
 /* STATUS */

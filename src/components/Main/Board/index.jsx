@@ -17,6 +17,7 @@ function Board() {
 
   return (
     <div className={Styles.board_container}>
+      <h4>CREADOS</h4>
       <div className={`${Styles.created} ${Styles.column}`}>
         <NewNoteCard />
         {allNotes.map((note) => {
@@ -35,6 +36,7 @@ function Board() {
           }
         })}
       </div>
+      <h4>EN PROGRESO</h4>
       <div className={`${Styles.progress} ${Styles.column}`}>
         {allNotes.map((note) => {
           if (note.status === "in_progress") {
@@ -52,6 +54,7 @@ function Board() {
           }
         })}
       </div>
+      <h4>COMPLETADOS</h4>
       <div className={`${Styles.completed} ${Styles.column}`}>
         {allNotes.map((note) => {
           if (note.status === "completed") {

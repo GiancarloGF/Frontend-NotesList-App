@@ -1,6 +1,6 @@
 .dashboard_container {
   width: 100%;
-  max-width: 1280px;
+  /* max-width: 1280px; */
   height: 100%;
   display: grid;
   grid-template-columns: 40px auto;

@@ -1,6 +1,6 @@
 .generalReport_container {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     gap: 1rem;
     height: 100%;

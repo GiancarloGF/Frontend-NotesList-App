@@ -10,7 +10,7 @@ function GeneralReport() {
     <>
       <div className={Styles.generalReport_container}>
         <Board />
-        <Widgets/>
+        {/* <Widgets/> */}
       </div>
       {/* <div className={Styles.bottom}></div> */}
     </>
