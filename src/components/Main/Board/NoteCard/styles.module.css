@@ -75,7 +75,7 @@
 }
 
 .title.light {
-  color: var(--gray3);
+  color: #33332d;
 }
 .title.dark {
   color: var(--white);

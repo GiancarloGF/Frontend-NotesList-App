@@ -22,3 +22,9 @@
   .menu_container.menu_active {
     width:100%;
   }
+
+  @media (max-width: 768px) {
+    .menu_container {
+      display: none; 
+    }
+  }

@@ -1,0 +1,13 @@
+.container {
+	position: fixed;
+	width: 100% !important;
+	bottom: 0;
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+	.container {
+		display: block;
+	}
+}

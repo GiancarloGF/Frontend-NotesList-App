@@ -93,3 +93,9 @@
   padding: 0 0.5rem;
 }
 
+@media (max-width: 425px) {
+  .form {
+    padding: 0 1rem;
+  }
+}
+

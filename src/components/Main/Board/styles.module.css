@@ -40,7 +40,11 @@
 
 } */
 
-@media (max-width: 1024px) {
+
+.board_container > h4{
+  color: var(--gray5);
+}
+/* @media (max-width: 1024px) {
 
 }
 
@@ -49,5 +53,12 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
 
+  }
+} */
+
+
+@media (max-width: 768px) {
+  .board_container {
+    margin-bottom: 4rem;
   }
 }
